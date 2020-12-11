@@ -1,0 +1,31 @@
+<!-- pages/category/category.wxml -->
+<view class="cates">
+  <SearchInput></SearchInput>
+  <view class="cats_container">
+    <!-- 左侧导航栏 -->
+    <scroll-view class="left_menu" scroll-y="{{true}}" show-scrollbar='{{false}}' enhanced='{{true}}'>
+      <view wx:for="{{categories}}" wx:key="index" class="menu_item {{index == active_cat ? 'active' : ''}}}" bindtap="actived" data-index="{{index}}" data-item="{{item}}">
+        {{item.cat_name}}
+      </view>
+    </scroll-view>
+    <!-- ! 右侧分类 -->
+    <scroll-view class="right_content" scroll-y="{{true}}" scroll-top='{{scrollTop}}' enhanced="true" show-scrollbar="false">
+      <view wx:for="{{catRight}}" wx:key="index" class="goods_group">
+        <view class="goods_title">
+          {{item.cat_name}}
+          <!-- <text class="delimter" ></text> -->
+          <!-- <text class="delimter" ></text> -->
+          <!-- <text class="delimter" ></text> -->
+        </view>
+        <view class="goods_list">
+          <navigator wx:for="{{item.children}}" wx:for-item="child" wx:for-index="index2"
+          url="/pages/goods_list/goods_list?cat_id={{item.cat_id}}"
+          wx:key="cat_id" >
+            <image src="{{child.cat_icon}}" mode="widthFix"></image>
+            <view class="goods_name">{{child.cat_name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

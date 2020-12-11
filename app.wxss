@@ -1,0 +1,26 @@
+@import "./styles/content.wxss";
+
+
+
+page,view,text,image,swiper,swiper-item,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*
+  定义主题颜色
+  less/css/wxss 都支持变量
+*/
+page{
+  /* 定义主题颜色 251, 114, 153*/
+  --themeColor: rgba(251, 114, 153,0.8);
+  /* 定义 字体大小 假设设计稿大小时 375px
+  1px = 2rpx
+  14px = 28rpx */
+  font-size: 20rpx;
+}
+
+image{
+  width: 100%;
+}
